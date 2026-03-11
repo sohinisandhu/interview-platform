@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-syne: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.12);
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --bg: #08090c;
+  --surface: rgba(12,18,14,0.92);
+  --border: rgba(52,211,153,0.12);
+  --text: #f0f2f0;
+  --text-muted: #4a6a4a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-syne);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: rgba(52,211,153,0.2); }
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1a2e1a; border-radius: 2px; }
+
+/* Animations */
+@keyframes shimmer { 0%{background-position:-300% center} 100%{background-position:300% center} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes spin { to{transform:rotate(360deg)} }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes recordBlink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.8)} }
+@keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(52,211,153,0.1)} 50%{box-shadow:0 0 40px rgba(52,211,153,0.25)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes slideIn { from{transform:translateX(100%);opacity:0} to{transform:translateX(0);opacity:1} }
+
+/* Utility classes */
+.animate-fadeUp { animation: fadeUp 0.45s ease both; }
+.animate-fadeIn { animation: fadeIn 0.3s ease both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-glow { animation: glow 3s ease-in-out infinite; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #f0f2f0 0%, #34d399 30%, #60a5fa 60%, #f0f2f0 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Glass card */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 24px 48px rgba(0,0,0,0.3);
+}
+
+.glass-sm {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #0d3a20, #081c10);
+  color: var(--green);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: var(--font-syne);
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 0 24px rgba(52,211,153,0.12), inset 0 1px 0 rgba(52,211,153,0.1);
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 0 36px rgba(52,211,153,0.2);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: #6a8a6a;
+  padding: 10px 18px;
+  font-family: var(--font-syne);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover { border-color: rgba(52,211,153,0.3); color: #34d399; }
+
+/* Input */
+.input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(52,211,153,0.12);
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: var(--text);
+  font-family: var(--font-syne);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus { border-color: rgba(52,211,153,0.45); }
+.input::placeholder { color: #3a5a3a; }
+
+/* Tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* Score colors */
+.score-excellent { color: #34d399; }
+.score-good { color: #fbbf24; }
+.score-average { color: #fb923c; }
+.score-poor { color: #f87171; }
+
+/* Recording indicator */
+.record-pulse { animation: recordBlink 1s infinite; }

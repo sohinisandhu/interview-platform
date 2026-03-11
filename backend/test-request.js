@@ -1,0 +1,1 @@
+fetch("http://localhost:5000/api/interview/start", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({jobRole:"Developer", mode:"video"}) }).then(r=>r.text()).then(console.log).catch(console.error)
