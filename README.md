@@ -8,7 +8,7 @@ A full-stack AI-powered interview preparation platform with Resume Analysis, JD 
 |-------|-----------|
 | Frontend | Next.js 14 (App Router) + Tailwind CSS + Zustand |
 | Backend | Node.js + Express |
-| AI | OpenAI GPT-4o + Whisper API |
+| AI | GROK AI + Whisper API |
 | Database | MongoDB + Mongoose |
 | Auth | JWT (access + refresh tokens) |
 | File Upload | Multer + pdf-parse |
