@@ -30,7 +30,7 @@ A full-stack AI-powered interview preparation platform with Resume Analysis, JD 
 ### Prerequisites
 - Node.js 18+
 - MongoDB (local or Atlas)
-- OpenAI API Key
+- GROKAI API Key
 
 ### 1. Clone & Install
 ```bash
